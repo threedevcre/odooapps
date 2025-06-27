@@ -1,0 +1,40 @@
+<odoo>
+     <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">Debranding Configuration</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app string="Debrand" data-string="Debrand" name="odoo-debrand-11">
+                    <block title="Debranding Configurations" name="debranding_configuration">
+                        <setting id="debranding_configuration" company_dependent="1">
+                            <div class="content-group">
+                                <div class="row mt16">
+                                    <label for="brand_logo" string="Brand Logo"/>
+                                        <field name="brand_logo" widget="image" class="w-25 mt-2"/>
+                                </div>
+
+                                <div class="row ">
+                                    <label for="favicon" string="Brand Favicon"/>
+                                        <field name="favicon" widget="image" class="float-left oe_avatar"/>
+                                </div>
+                            </div>
+                        </setting>
+                        <setting id="debranding_configuration" company_dependent="1">
+                            <div class="content-group">
+                                <div class="row mt16">
+                                    <label for="brand_name" string="Brand Name"/>
+                                        <field name="brand_name"/>
+                                </div>
+                                <div class="row ">
+                                    <label for="brand_url" string="Brand URL"/>
+                                        <field name="brand_url"/>
+                                </div>
+                             </div>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>
