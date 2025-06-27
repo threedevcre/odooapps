@@ -1,0 +1,9 @@
+<odoo>
+    <record id="sms_message_subtype" model="mail.message.subtype">
+        <field name="name">SMS Message</field>
+        <field name="res_model">res.partner</field>
+        <field name="default" eval="True"/>
+        <field name="sequence" eval="10"/>
+        <field name="description">SMS messages sent to/from this contact</field>
+    </record>
+</odoo>

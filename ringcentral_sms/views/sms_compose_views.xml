@@ -1,0 +1,29 @@
+<odoo>
+    <record id="view_sms_compose_form" model="ir.ui.view">
+        <field name="name">sms.compose.form</field>
+        <field name="model">sms.compose</field>
+        <field name="arch" type="xml">
+            <form string="Compose SMS">
+                <sheet>
+                    <group>
+                        <field name="partner_id" readonly="1"/>
+                        <field name="to_number" required="1"/>
+                        <field name="body" required="1"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="send_sms" string="Send" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="action_sms_compose"
+                name="Compose SMS"
+                res_model="sms.compose"
+                view_mode="form"
+                target="new"
+                context="{'default_partner_id': active_id}"
+                binding_model="res.partner"/>
+</odoo>

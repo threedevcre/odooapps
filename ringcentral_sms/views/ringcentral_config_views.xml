@@ -1,0 +1,32 @@
+<odoo>
+    <record id="ringcentral_config_view_form" model="ir.ui.view">
+        <field name="name">ringcentral.api.form</field>
+        <field name="model">ringcentral.api</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="app_key"/>
+                        <field name="app_secret"/>
+                        <field name="username"/>
+                        <field name="password" password="True"/>
+                        <field name="extension"/>
+                        <field name="sandbox"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="ringcentral_config_action" model="ir.actions.act_window">
+        <field name="name">RingCentral Configuration</field>
+        <field name="res_model">ringcentral.api</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="ringcentral_config_menu" name="RingCentral"
+              parent="base.menu_administration" sequence="100"
+              action="ringcentral_config_action"/>
+</odoo>

@@ -1,0 +1,43 @@
+<odoo>
+    <record id="view_partner_form_inherit_sms" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.sms</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <!-- Add SMS button next to mobile field -->
+            <xpath expr="//field[@name='mobile']" position="after">
+                <button name="send_sms_wizard"
+                        string="Send SMS"
+                        type="object"
+                        class="oe_highlight"
+                        invisible="not mobile"/>
+            </xpath>
+
+            <!-- Add SMS tab -->
+            <xpath expr="//notebook" position="inside">
+                <page string="SMS History" name="sms_history">
+                    <field name="sms_messages_ids" readonly="1">
+                        <tree>
+                            <field name="create_date"/>
+                            <field name="direction"/>
+                            <field name="to_number"/>
+                            <field name="from_number"/>
+                            <field name="body" widget="text"/>
+                            <field name="status"/>
+                        </tree>
+                        <form>
+                            <group>
+                                <field name="create_date" readonly="1"/>
+                                <field name="direction" readonly="1"/>
+                                <field name="to_number" readonly="1"/>
+                                <field name="from_number" readonly="1"/>
+                                <field name="status" readonly="1"/>
+                                <field name="body" readonly="1"/>
+                            </group>
+                        </form>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
