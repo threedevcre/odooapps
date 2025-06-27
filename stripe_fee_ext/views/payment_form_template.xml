@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="method_form_stripe" inherit_id="payment.method_form" name="Payment Form: Stripe Fees">
+        <xpath expr="//t[@t-if='is_test']" position="after">
+            <t t-if="pm_sudo.code =='card' and provider_sudo.stripe_fees_active and amount and currency">
+                <span class="badge rounded-pill text-bg-secondary ms-1">
+                    + <t t-esc="provider_sudo.get_fees(amount, partner_id)"
+                        t-options="{'widget': 'monetary', 'display_currency': currency}"/>
+                    Fees
+                </span>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="token_form_stripe" inherit_id="payment.token_form" name="Payment Token Form: Stripe Fees">
+        <xpath expr="//t[@t-if='is_test']" position="after">
+            <t t-if="provider_sudo.stripe_fees_active and amount and currency">
+                <span class="badge rounded-pill text-bg-secondary ms-1">
+                    + <t t-esc="provider_sudo.get_fees(amount, partner_id)"
+                        t-options="{'widget': 'monetary', 'display_currency': currency}"/>
+                    Fees
+                </span>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="method_form_stripe_ach" inherit_id="payment.method_form" name="Payment Form: Stripe Fees ACH">
+        <xpath expr="//t[@t-if='is_test']" position="after">
+            <t t-if="pm_sudo.code =='ach_direct_debit' and provider_sudo.stripe_fees_active_ach and amount and currency">
+                <span class="badge rounded-pill text-bg-secondary ms-1">
+                    + <t t-esc="provider_sudo.get_fees_ach(amount, partner_id)"
+                        t-options="{'widget': 'monetary', 'display_currency': currency}"/>
+                    Fees
+                </span>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="token_form_stripe_ach" inherit_id="payment.token_form" name="Payment Token Form: Stripe Fees ACH">
+        <xpath expr="//t[@t-if='is_test']" position="after">
+            <t t-if="provider_sudo.stripe_fees_active_ach and amount and currency">
+                <span class="badge rounded-pill text-bg-secondary ms-1">
+                    + <t t-esc="provider_sudo.get_fees_ach(amount, partner_id)"
+                        t-options="{'widget': 'monetary', 'display_currency': currency}"/>
+                    Fees
+                </span>
+            </t>
+        </xpath>
+    </template>
+
+   <!-- <template id="portal_my_invoices_payment_extend" name="Extend Payment on My Invoices" inherit_id="account_payment.portal_my_invoices_payment">
+        <xpath expr="//span[@name='invoice_status_waiting_for_payment']" position="before">
+            <span t-elif="invoice.payment_state in ('not_paid') and tx_sudo.state == 'pending' and tx_sudo.provider_code not in ('none', 'custom')"
+                    class="badge rounded-pill text-bg-warning">
+                <span class="d-none d-md-inline"> Pending</span>
+            </span>
+            <span t-elif="invoice.payment_state in ('paid', 'in_payment','partial') and tx_sudo.state == 'done'" class="badge rounded-pill text-bg-success">
+                <i class="fa fa-fw fa-check"></i>
+                <span class="d-none d-md-inline"> Paid</span>
+            </span>
+        </xpath>
+    </template>-->
+</odoo>
