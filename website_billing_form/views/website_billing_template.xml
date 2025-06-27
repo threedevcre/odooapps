@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="address" inherit_id="website_sale.address">
+            <xpath expr="//input[@name='vat']/.." position="before">
+                <div class="w-100"/>
+                <div class="col-lg-6 mb-3" id="div_l10n_it_codice_fiscale">
+                    <label class="col-form-label fw-normal label-optional" for="custom_field">
+                        Custom Info
+                    </label>
+                    <input type="text"
+                           name="custom_field"
+                           class="form-control text-uppercase"
+                    t-attf-class="form-control #{error.get('custom_field') and 'is-invalid' or ''}" t-att-value="'custom_field' in checkout and checkout['custom_field']"/>
+                </div>
+            </xpath>
+        </template>
+</odoo>
