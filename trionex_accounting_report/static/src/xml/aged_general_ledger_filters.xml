@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="trionex_accounting_report.PartnerLedgerReportFilterExtraOptions" t-inherit="account_reports.AccountReportFilterExtraOptions" t-inherit-mode="extension">
+        <xpath expr="//DropdownItem[contains(@class, 'filter_show_all_hook')]" position="after">
+            <DropdownItem
+                class="{ 'selected': controller.options.hide_description }"
+                onSelected="() => this.filterClicked({ optionKey: 'hide_description', reload: true})"
+                closingMode="'none'"
+            >
+                Hide Description
+            </DropdownItem>
+            <DropdownItem
+                class="{ 'selected': controller.options.hide_bill }"
+                onSelected="() => this.filterClicked({ optionKey: 'hide_bill', reload: true})"
+                closingMode="'none'"
+            >
+                Hide Bill
+            </DropdownItem>
+            <DropdownItem
+                class="{ 'selected': controller.options.hide_po }"
+                onSelected="() => this.filterClicked({ optionKey: 'hide_po', reload: true})"
+                closingMode="'none'"
+            >
+                Hide PO
+            </DropdownItem>
+        </xpath>
+    </t>
+</templates>

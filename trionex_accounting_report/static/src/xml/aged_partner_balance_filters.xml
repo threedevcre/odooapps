@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="trionex_accounting_report.AgedPartnerBalanceFilterShowDescription"
+       t-inherit="account_reports.AgedPartnerBalanceFilterExtraOptions"
+       t-inherit-mode="extension">
+        <xpath expr="//DropdownItem[contains(@onSelected, 'show_account')]" position="after">
+            <DropdownItem
+                class="{ 'selected': controller.options.show_description }"
+                onSelected="() => this.filterClicked({ optionKey: 'show_description', reload: true})"
+                closingMode="'none'"
+            >
+                Show Description
+            </DropdownItem>
+            <DropdownItem
+                class="{ 'selected': controller.options.show_bill }"
+                onSelected="() => this.filterClicked({ optionKey: 'show_bill', reload: true})"
+                closingMode="'none'"
+            >
+                Show Bill
+            </DropdownItem>
+            <DropdownItem
+                class="{ 'selected': controller.options.show_po }"
+                onSelected="() => this.filterClicked({ optionKey: 'show_po', reload: true})"
+                closingMode="'none'"
+            >
+                Show PO
+            </DropdownItem>
+        </xpath>
+    </t>
+</templates>

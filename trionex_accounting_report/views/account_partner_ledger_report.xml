@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo auto_sequence="1">
+    <record id="account_reports.partner_ledger_report" model="account.report">
+        <field name="name">Partner Ledger</field>
+        <field name="column_ids">
+            <record id="partner_ledger_report_ref" model="account.report.column">
+                <field name="name">Reference</field>
+                <field name="sequence">1</field>
+                <field name="expression_label">reference</field>
+                <field name="figure_type">string</field>
+            </record>
+            <record id="partner_ledger_report_description" model="account.report.column">
+                <field name="name">Description</field>
+                <field name="sequence">1</field>
+                <field name="expression_label">description</field>
+                <field name="figure_type">string</field>
+            </record>
+            <record id="partner_ledger_report_po_ref" model="account.report.column">
+                <field name="name">PO Reference</field>
+                <field name="sequence">1</field>
+                <field name="expression_label">po_ref</field>
+                <field name="figure_type">string</field>
+            </record>
+            <record id="partner_ledger_report_bill_ref" model="account.report.column">
+                <field name="name">Bill Reference</field>
+                <field name="sequence">1</field>
+                <field name="expression_label">bill_ref</field>
+                <field name="figure_type">string</field>
+            </record>
+        </field>
+    </record>
+</odoo>
